@@ -331,12 +331,13 @@ export default function CSVImporterView({
   const [clientGeminiKey, setClientGeminiKey] = useState<string>("");
 
   useEffect(() => {
-    const savedUrl =
+    const savedUrl = (
       localStorage.getItem("groweasy_backend_url") ||
       process.env.NEXT_PUBLIC_BACKEND_URL ||
-      "http://127.0.0.1:5000";
+      "http://127.0.0.1:5000"
+    ).trim();
     const targetUrl = savedUrl.replace("localhost", "127.0.0.1");
-    const savedKey = localStorage.getItem("groweasy_gemini_key") || "";
+    const savedKey = (localStorage.getItem("groweasy_gemini_key") || "").trim();
 
     setTimeout(() => {
       setCurrentBackendUrl(targetUrl);

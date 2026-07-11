@@ -39,7 +39,7 @@ export default function SettingsView({ onSettingsChange }: SettingsProps) {
       localStorage.getItem("groweasy_backend_url") ||
       process.env.NEXT_PUBLIC_BACKEND_URL;
     const targetUrl = savedUrl
-      ? savedUrl.replace("localhost", "127.0.0.1")
+      ? savedUrl.trim().replace("localhost", "127.0.0.1")
       : "http://127.0.0.1:5000";
 
     const savedGemini = localStorage.getItem("groweasy_gemini_key") || "";
@@ -47,15 +47,16 @@ export default function SettingsView({ onSettingsChange }: SettingsProps) {
     setTimeout(() => {
       setBackendUrl(targetUrl);
       if (savedGemini) {
-        setGeminiKey(savedGemini);
+        setGeminiKey(savedGemini.trim());
       }
     }, 0);
   }, []);
 
   const testConnection = async (url: string) => {
+    const trimmedUrl = url.trim();
     setStatus("testing");
     try {
-      const res = await fetch(`${url.replace(/\/$/, "")}/health`);
+      const res = await fetch(`${trimmedUrl.replace(/\/$/, "")}/health`);
       if (res.ok) {
         const data = await res.json();
         setStatus("healthy");
@@ -71,8 +72,13 @@ export default function SettingsView({ onSettingsChange }: SettingsProps) {
   };
 
   const handleSave = () => {
-    localStorage.setItem("groweasy_backend_url", backendUrl);
-    localStorage.setItem("groweasy_gemini_key", geminiKey);
+    const trimmedUrl = backendUrl.trim();
+    const trimmedKey = geminiKey.trim();
+
+    localStorage.setItem("groweasy_backend_url", trimmedUrl);
+    localStorage.setItem("groweasy_gemini_key", trimmedKey);
+    setBackendUrl(trimmedUrl);
+    setGeminiKey(trimmedKey);
 
     setSaveStatus("saved");
     setTimeout(() => setSaveStatus("idle"), 3000);
@@ -81,7 +87,7 @@ export default function SettingsView({ onSettingsChange }: SettingsProps) {
       onSettingsChange();
     }
 
-    testConnection(backendUrl);
+    testConnection(trimmedUrl);
   };
 
   return (
