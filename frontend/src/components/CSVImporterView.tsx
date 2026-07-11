@@ -346,17 +346,30 @@ export default function CSVImporterView({
 
   useEffect(() => {
     let cancelled = false;
-    fetch(`${currentBackendUrl}/health`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (!cancelled)
-          setServerGeminiConfigured(Boolean(data?.apiConfigured?.gemini));
-      })
-      .catch(() => {
-        if (!cancelled) setServerGeminiConfigured(null); // couldn't reach server yet — stay neutral, not falsely "fallback"
-      });
+    let timerId: any = null;
+
+    const checkHealth = () => {
+      fetch(`${currentBackendUrl}/health`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (!cancelled) {
+            setServerGeminiConfigured(Boolean(data?.apiConfigured?.gemini));
+          }
+        })
+        .catch(() => {
+          if (!cancelled) {
+            setServerGeminiConfigured(null);
+            // Retry checking every 5 seconds if server is not reachable (Render cold start)
+            timerId = setTimeout(checkHealth, 5000);
+          }
+        });
+    };
+
+    checkHealth();
+
     return () => {
       cancelled = true;
+      if (timerId) clearTimeout(timerId);
     };
   }, [currentBackendUrl]);
 
@@ -536,6 +549,7 @@ export default function CSVImporterView({
                   ? "Local pattern engine"
                   : `Gemini (${event.engine})`;
               setEngineLabel(label);
+              setServerGeminiConfigured(event.engine !== "local-pattern-engine");
               const mappedCols = Object.entries(event.mapping || {}).filter(
                 ([, v]) => v && v !== "unmapped",
               ).length;
