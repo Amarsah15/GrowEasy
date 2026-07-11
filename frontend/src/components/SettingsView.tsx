@@ -38,9 +38,17 @@ export default function SettingsView({ onSettingsChange }: SettingsProps) {
     const savedUrl =
       localStorage.getItem("groweasy_backend_url") ||
       process.env.NEXT_PUBLIC_BACKEND_URL;
-    const targetUrl = savedUrl
+    let targetUrl = savedUrl
       ? savedUrl.trim().replace("localhost", "127.0.0.1")
       : "http://127.0.0.1:5000";
+
+    if (targetUrl && !/^https?:\/\//i.test(targetUrl)) {
+      if (/^(localhost|127\.0\.0\.1)/i.test(targetUrl)) {
+        targetUrl = `http://${targetUrl}`;
+      } else {
+        targetUrl = `https://${targetUrl}`;
+      }
+    }
 
     const savedGemini = localStorage.getItem("groweasy_gemini_key") || "";
 
@@ -53,7 +61,15 @@ export default function SettingsView({ onSettingsChange }: SettingsProps) {
   }, []);
 
   const testConnection = async (url: string) => {
-    const trimmedUrl = url.trim();
+    let rawUrl = url.trim();
+    if (rawUrl && !/^https?:\/\//i.test(rawUrl)) {
+      if (/^(localhost|127\.0\.0\.1)/i.test(rawUrl)) {
+        rawUrl = `http://${rawUrl}`;
+      } else {
+        rawUrl = `https://${rawUrl}`;
+      }
+    }
+    const trimmedUrl = rawUrl;
     setStatus("testing");
     try {
       const res = await fetch(`${trimmedUrl.replace(/\/$/, "")}/health`);
@@ -72,7 +88,15 @@ export default function SettingsView({ onSettingsChange }: SettingsProps) {
   };
 
   const handleSave = () => {
-    const trimmedUrl = backendUrl.trim();
+    let rawUrl = backendUrl.trim();
+    if (rawUrl && !/^https?:\/\//i.test(rawUrl)) {
+      if (/^(localhost|127\.0\.0\.1)/i.test(rawUrl)) {
+        rawUrl = `http://${rawUrl}`;
+      } else {
+        rawUrl = `https://${rawUrl}`;
+      }
+    }
+    const trimmedUrl = rawUrl;
     const trimmedKey = geminiKey.trim();
 
     localStorage.setItem("groweasy_backend_url", trimmedUrl);

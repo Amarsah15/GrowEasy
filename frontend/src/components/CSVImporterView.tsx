@@ -336,7 +336,14 @@ export default function CSVImporterView({
       process.env.NEXT_PUBLIC_BACKEND_URL ||
       "http://127.0.0.1:5000"
     ).trim();
-    const targetUrl = savedUrl.replace("localhost", "127.0.0.1");
+    let targetUrl = savedUrl.replace("localhost", "127.0.0.1");
+    if (targetUrl && !/^https?:\/\//i.test(targetUrl)) {
+      if (/^(localhost|127\.0\.0\.1)/i.test(targetUrl)) {
+        targetUrl = `http://${targetUrl}`;
+      } else {
+        targetUrl = `https://${targetUrl}`;
+      }
+    }
     const savedKey = (localStorage.getItem("groweasy_gemini_key") || "").trim();
 
     setTimeout(() => {
