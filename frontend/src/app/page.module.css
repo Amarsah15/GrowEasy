@@ -1,0 +1,15 @@
+.appWrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+.mainContent {
+  flex-grow: 1;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--background);
+}

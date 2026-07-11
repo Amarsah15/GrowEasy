@@ -1,0 +1,345 @@
+.container {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.1) 0%, rgba(217, 119, 6, 0.06) 100%), var(--sidebar-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  flex-shrink: 0;
+  min-height: 280px;
+}
+
+.heroContent {
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--accent-primary-glow);
+  color: var(--accent-primary);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(23, 96, 74, 0.2);
+}
+
+.heroContent h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--foreground);
+  line-height: 1.25;
+}
+
+.heroContent p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.primaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px var(--accent-primary-glow);
+  transition: all 0.2s ease;
+}
+
+.primaryBtn:hover {
+  background-color: var(--accent-primary-hover);
+  transform: translateY(-1px);
+}
+
+.secondaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  background-color: var(--scrollbar-track);
+  color: var(--foreground);
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+  background-color: var(--border-color);
+}
+
+.heroGraphics {
+  position: relative;
+  width: 30%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.floatingCard1,
+.floatingCard2 {
+  position: absolute;
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  width: 220px;
+}
+
+.floatingCard1 {
+  top: 10px;
+  right: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.floatingCard2 {
+  bottom: 10px;
+  left: -20px;
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.floatingCard1 div,
+.floatingCard2 div {
+  display: flex;
+  flex-direction: column;
+}
+
+.floatingCard1 strong,
+.floatingCard2 strong {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.floatingCard1 span,
+.floatingCard2 span {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.greenText {
+  color: var(--success);
+}
+
+.blueText {
+  color: var(--accent-secondary);
+}
+
+.statsSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.statCard {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blueIcon {
+  background-color: var(--accent-primary-glow);
+  color: var(--accent-primary);
+}
+
+.greenIcon {
+  background-color: var(--success-glow);
+  color: var(--success);
+}
+
+.redIcon {
+  background-color: var(--danger-glow);
+  color: var(--danger);
+}
+
+.statData {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statData span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.statData h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.workflowSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.workflowSection h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.workflowGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.stepCard {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.stepNum {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--accent-primary-glow);
+  color: var(--accent-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(23, 96, 74, 0.2);
+}
+
+.stepCard h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.stepCard p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 30px;
+  }
+
+  .heroContent {
+    max-width: 100%;
+  }
+
+  .heroGraphics {
+    width: 100%;
+    justify-content: flex-start;
+    height: 120px;
+  }
+
+  .floatingCard1 {
+    left: 0;
+    right: auto;
+  }
+
+  .floatingCard2 {
+    left: 240px;
+  }
+
+  .statsSection {
+    grid-template-columns: 1fr;
+  }
+
+  .workflowGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Premium Dark Mode Overrides */
+:global(.dark) .hero {
+  background: linear-gradient(135deg, var(--accent-primary-glow) 0%, rgba(251, 146, 60, 0.06) 100%), var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: var(--card-shadow);
+}
+
+:global(.dark) .badge {
+  background-color: var(--accent-primary-glow);
+  color: #6ee7b7;
+  border-color: rgba(56, 163, 130, 0.25);
+}
+
+:global(.dark) .secondaryBtn {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-color: var(--card-border);
+  color: var(--foreground);
+}
+
+:global(.dark) .secondaryBtn:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent-primary);
+}
+
+:global(.dark) .floatingCard1,
+:global(.dark) .floatingCard2 {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: var(--card-shadow);
+}
