@@ -286,6 +286,16 @@ function parseDate(raw: string): string {
   return new Date().toISOString().replace('T', ' ').substring(0, 19);
 }
 
+// Short label words that commonly prefix a phone/email inside a single
+// "Contact Info"-style cell (e.g. "Mobile - 987...", "Ph: 987... / Alt:
+// 987...", "mail: x@y.com"). These carry no information of their own once
+// the actual phone/email has been pulled out, so they're stripped before
+// judging whether a cell has meaningful leftover text — otherwise a purely
+// labeled contact cell gets (wrongly) treated as "real extra content" and
+// dumped a second time, verbatim, into crm_note alongside the already
+// cleanly-extracted email/mobile fields.
+const CONTACT_LABEL_WORDS = /\b(mobile|phone|ph|mob|tel|cell|alt|alternate|contact|email|e-?mail|mail|no|number|whatsapp|primary|secondary)\b/gi;
+
 function isPureContact(value: string, field: string): boolean {
   if (field === 'lead_owner' || field === 'created_at') return false;
   const v = norm(value);
@@ -295,8 +305,13 @@ function isPureContact(value: string, field: string): boolean {
     return true;
   }
   const phoneMatch = v.match(PHONE_RE);
-  if (phoneMatch) {
-    const stripped = v.replace(EMAIL_RE, '').replace(PHONE_RE, '').replace(/[^a-zA-Z0-9]/g, '').trim();
+  if (phoneMatch || emailMatch) {
+    const stripped = v
+      .replace(EMAIL_RE, '')
+      .replace(PHONE_RE, '')
+      .replace(CONTACT_LABEL_WORDS, '')
+      .replace(/[^a-zA-Z0-9]/g, '')
+      .trim();
     if (stripped.length <= 3) {
       return true;
     }
@@ -464,7 +479,12 @@ export function extractRow(row: Record<string, any>): HeuristicRecord {
     const found = value.match(PHONE_RE);
     if (found) {
       found.forEach((p) => phones.push(p));
-      const cleanVal = value.replace(PHONE_RE, '').replace(/[^a-zA-Z0-9]/g, '').trim();
+      const cleanVal = value
+        .replace(EMAIL_RE, '')
+        .replace(PHONE_RE, '')
+        .replace(CONTACT_LABEL_WORDS, '')
+        .replace(/[^a-zA-Z0-9]/g, '')
+        .trim();
       if (cleanVal.length > 3) {
         noteParts.push(`${header}: ${value}`);
       }
