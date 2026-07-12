@@ -95,6 +95,23 @@ describe("AI CSV Importer Backend Tests", () => {
       expect(rec.data.crm_note).toContain("second@example.com");
       expect(rec.data.crm_note).toContain("9123456780");
     });
+
+    it("extracts phone number hidden in comments or unmapped columns", () => {
+      const rows = [
+        {
+          Name: "Hidden Contact",
+          Comments: "Interested in Eden Park. secondary number of wife also shared - 9988001122",
+          "Contact Info": "Mobile - 9876123450, email test@test.com",
+        },
+      ];
+      const [rec] = heuristics.extractBatch(rows);
+      expect(rec.status).toBe("success");
+      expect(rec.data.email).toBe("test@test.com");
+      expect(rec.data.mobile_without_country_code).toBe("9876123450");
+      expect(rec.data.crm_note).toContain("9988001122");
+      expect(rec.data.crm_note).toContain("Additional phone: 9988001122");
+      expect(rec.data.crm_note).toContain("Interested in Eden Park");
+    });
   });
 
   describe("Status & source synonym mapping", () => {

@@ -286,6 +286,50 @@ function parseDate(raw: string): string {
   return new Date().toISOString().replace('T', ' ').substring(0, 19);
 }
 
+function isPureContact(value: string, field: string): boolean {
+  if (field === 'lead_owner' || field === 'created_at') return false;
+  const v = norm(value);
+  if (!v) return false;
+  const emailMatch = v.match(EMAIL_RE);
+  if (emailMatch && emailMatch[0].length === v.length) {
+    return true;
+  }
+  const phoneMatch = v.match(PHONE_RE);
+  if (phoneMatch) {
+    const stripped = v.replace(EMAIL_RE, '').replace(PHONE_RE, '').replace(/[^a-zA-Z0-9]/g, '').trim();
+    if (stripped.length <= 3) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function isPhoneLikelyHeader(header: string): boolean {
+  const k = key(header);
+  if (classifyHeader(header) === 'phone') return true;
+  const phoneKeywords = ['phone', 'mobile', 'contact', 'call', 'ph', 'mob', 'tel', 'alternate', 'alt'];
+  if (phoneKeywords.some((kw) => k.includes(kw))) {
+    const noteKeywords = ['note', 'remark', 'comment', 'feedback', 'desc', 'message', 'query'];
+    if (!noteKeywords.some((kw) => k.includes(kw))) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function isEmailLikelyHeader(header: string): boolean {
+  const k = key(header);
+  if (classifyHeader(header) === 'email') return true;
+  const emailKeywords = ['email', 'mail', 'contact', 'alternate', 'alt'];
+  if (emailKeywords.some((kw) => k.includes(kw))) {
+    const noteKeywords = ['note', 'remark', 'comment', 'feedback', 'desc', 'message', 'query'];
+    if (!noteKeywords.some((kw) => k.includes(kw))) {
+      return true;
+    }
+  }
+  return false;
+}
+
 /**
  * Extract one row into a CRM record (or a skip verdict).
  * @param {Record<string, any>} row  raw CSV row (header -> value)
@@ -299,8 +343,10 @@ export function extractRow(row: Record<string, any>): HeuristicRecord {
 
   let first = '';
   let last = '';
-  const emails: string[] = [];
-  const phones: string[] = [];
+  const primaryEmails: string[] = [];
+  const secondaryEmails: string[] = [];
+  const primaryPhones: string[] = [];
+  const secondaryPhones: string[] = [];
   const noteParts: string[] = [];
   let rawStatus = '';
   let rawSource = '';
@@ -317,20 +363,44 @@ export function extractRow(row: Record<string, any>): HeuristicRecord {
 
   const unmappedEntries: Array<{ header: string; value: string }> = []; // { header, value } — revisited after the header pass
 
+  // 1. Pre-scan all column values in the row to find all emails and phone numbers.
+  for (const [header, valueRaw] of Object.entries(row)) {
+    const value = norm(valueRaw);
+    if (value === '') continue;
+    const field = classifyHeader(header);
+    if (field !== 'lead_owner' && field !== 'created_at') {
+      const foundEmails = value.match(EMAIL_RE);
+      if (foundEmails) {
+        if (isEmailLikelyHeader(header)) {
+          foundEmails.forEach((e) => primaryEmails.push(e.trim()));
+        } else {
+          foundEmails.forEach((e) => secondaryEmails.push(e.trim()));
+        }
+      }
+      if (!looksLikeDate(value)) {
+        const foundPhones = value.match(PHONE_RE);
+        if (foundPhones) {
+          if (isPhoneLikelyHeader(header)) {
+            foundPhones.forEach((p) => primaryPhones.push(p.trim()));
+          } else {
+            foundPhones.forEach((p) => secondaryPhones.push(p.trim()));
+          }
+        }
+      }
+    }
+  }
+
+  // Combine so primary fields have priority
+  const emails = [...primaryEmails, ...secondaryEmails];
+  const phones = [...primaryPhones, ...secondaryPhones];
+
   for (const [header, valueRaw] of Object.entries(row)) {
     const value = norm(valueRaw);
     if (value === '') continue;
     totalCols += 1;
     const field = classifyHeader(header);
 
-    // Value-level email scanning wins over header guesses ONLY for columns
-    // that aren't already something more specific. This still catches a
-    // stray email hiding in a "notes"/unmapped column, without stealing
-    // lead_owner (or company/city/etc.) just because its value happens to
-    // look like an email address.
-    const foundEmails = field !== 'lead_owner' ? (value.match(EMAIL_RE) || []) : [];
-    if (foundEmails.length) {
-      foundEmails.forEach((e) => emails.push(e.trim()));
+    if (isPureContact(value, field)) {
       mappedCols += 1;
       continue;
     }
@@ -394,6 +464,10 @@ export function extractRow(row: Record<string, any>): HeuristicRecord {
     const found = value.match(PHONE_RE);
     if (found) {
       found.forEach((p) => phones.push(p));
+      const cleanVal = value.replace(PHONE_RE, '').replace(/[^a-zA-Z0-9]/g, '').trim();
+      if (cleanVal.length > 3) {
+        noteParts.push(`${header}: ${value}`);
+      }
     } else {
       noteParts.push(`${header}: ${value}`);
     }

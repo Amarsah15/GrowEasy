@@ -15,7 +15,7 @@ The system allows uploading CSV files of any structure (e.g. Facebook Lead Expor
 - **Real-Time Stream Processing**: Uses Server-Sent Events (SSE) to stream batch parsing progress and lead records incrementally to the frontend.
 - **AI Schema Mapping & Normalization**: Integrates Gemini (`gemini-2.5-flash` / `gemini-1.5-flash`) via a single structured-output call per batch.
 - **Robust Heuristics Fallback**: Runs a regex + value-scanning heuristic extractor if no Gemini key is provided, allowing the application to work out-of-the-box for evaluation. An "AI Engine" badge in the UI always shows which mode is actually active, so this is never silently unclear.
-- **Leads Database & Controls**: Full-featured Leads dashboard showing active leads with search queries, status/source filters (with specific red formatting for `REJECTED` and `BAD_LEAD` status values), sorting, and manual record deletion.
+- **Leads Database & Controls**: Full-featured Leads dashboard showing active leads with search queries, status/source filters (with specific red formatting for the `BAD_LEAD` status value), sorting, and manual record deletion.
 - **Theme Engine**: Toggle between custom Cyberpunk Dark Mode (default) and Light Mode.
 - **API Settings**: Change backend server endpoint URL and save your own Gemini API key to the browser's `localStorage` directly in the UI.
 - **Mobile & Tablet Responsiveness**: A fully adaptive navigation drawer (hamburger menu) and responsive fluid layout scaling ensure premium visual design and usability across all devices (mobile, tablet, and desktop).
@@ -119,7 +119,7 @@ To build and launch both services simultaneously:
 | `state`                       | State location             | Mapped                                                                                               |
 | `country`                     | Country location           | Mapped                                                                                               |
 | `lead_owner`                  | Lead owner email           | Mapped                                                                                               |
-| `crm_status`                  | Current pipeline status    | `GOOD_LEAD_FOLLOW_UP`, `DID_NOT_CONNECT`, `BAD_LEAD` (Red), `REJECTED` (Red), `SALE_DONE`            |
+| `crm_status`                  | Current pipeline status    | `GOOD_LEAD_FOLLOW_UP`, `DID_NOT_CONNECT`, `BAD_LEAD` (Red), `SALE_DONE`                              |
 | `crm_note`                    | Remarks & overflow details | Contains secondary contacts and unmapped details                                                     |
 | `data_source`                 | Lead source name           | Mapped to allowed: `leads_on_demand`, `meridian_tower`, `eden_park`, `varah_swamy`, `sarjapur_plots` |
 | `possession_time`             | Property possession time   | Mapped                                                                                               |
