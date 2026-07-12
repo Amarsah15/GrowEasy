@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Leaf,
   BarChart2,
+  X,
 } from "lucide-react";
 import styles from "./Sidebar.module.css";
 
@@ -19,6 +20,8 @@ interface SidebarProps {
   setActiveTab: (tab: string) => void;
   isDarkMode: boolean;
   toggleDarkMode: () => void;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
 export default function Sidebar({
@@ -26,6 +29,8 @@ export default function Sidebar({
   setActiveTab,
   isDarkMode,
   toggleDarkMode,
+  isOpen = false,
+  onClose,
 }: SidebarProps) {
   const menuItems = [
     {
@@ -55,7 +60,7 @@ export default function Sidebar({
   ];
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ""}`}>
       {/* Brand Header */}
       <div className={styles.brand}>
         <div
@@ -86,6 +91,14 @@ export default function Sidebar({
           <h2>GrowEasy</h2>
           <span>AI CSV Ingest Hub</span>
         </div>
+        {/* Mobile close button */}
+        <button
+          className={styles.closeBtn}
+          onClick={onClose}
+          aria-label="Close navigation menu"
+        >
+          <X size={18} />
+        </button>
       </div>
 
       {/* Menu Navigation */}
@@ -96,7 +109,10 @@ export default function Sidebar({
           return (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => {
+                setActiveTab(item.id);
+                onClose?.();
+              }}
               className={`${styles.navItem} ${isActive ? styles.active : ""}`}
             >
               <div className={styles.itemMain}>

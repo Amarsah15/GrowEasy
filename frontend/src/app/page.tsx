@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { Menu, Leaf, BarChart2 } from "lucide-react";
 import Sidebar from "../components/Sidebar";
 import DashboardView from "../components/DashboardView";
 import CSVImporterView from "../components/CSVImporterView";
@@ -12,6 +13,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [isDarkMode, setIsDarkMode] = useState(true); // Defaults to dark mode for premium look
   const [isMounted, setIsMounted] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     // Load preference from localStorage
@@ -65,20 +67,77 @@ export default function Home() {
 
   return (
     <div className={styles.appWrapper}>
+      {/* Mobile Top Header */}
+      <header className={styles.mobileHeader}>
+        <button
+          className={styles.menuToggleBtn}
+          onClick={() => setIsSidebarOpen(true)}
+          aria-label="Open navigation menu"
+        >
+          <Menu size={22} />
+        </button>
+        <div className={styles.mobileBrand}>
+          <div className={styles.mobileBrandIcon} style={{ position: "relative", flexShrink: 0 }}>
+            <Leaf
+              size={17}
+              style={{
+                color: "#ffffff",
+                position: "absolute",
+                top: "6px",
+                left: "4px",
+              }}
+            />
+            <BarChart2
+              size={13}
+              style={{
+                color: "#ffffff",
+                position: "absolute",
+                top: "13px",
+                left: "14px",
+                opacity: 0.85,
+              }}
+            />
+          </div>
+          <div className={styles.mobileBrandTextWrapper}>
+            <span className={styles.mobileBrandText}>GrowEasy</span>
+            <span className={styles.mobileBrandSub}>AI Ingest Hub</span>
+          </div>
+        </div>
+      </header>
+
       {/* Sidebar navigation */}
       <Sidebar
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={(tab) => {
+          setActiveTab(tab);
+          setIsSidebarOpen(false); // Close sidebar on selection (mobile drawer)
+        }}
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
+
+      {/* Sidebar backdrop overlay */}
+      {isSidebarOpen && (
+        <div
+          className={styles.backdrop}
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
 
       {/* Main Content panel */}
       <main className={styles.mainContent}>
         {activeTab === "dashboard" && (
           <DashboardView
-            onStartImport={() => setActiveTab("importer")}
-            onViewDatabase={() => setActiveTab("database")}
+            onStartImport={() => {
+              setActiveTab("importer");
+              setIsSidebarOpen(false);
+            }}
+            onViewDatabase={() => {
+              setActiveTab("database");
+              setIsSidebarOpen(false);
+            }}
           />
         )}
         {activeTab === "importer" && (

@@ -1,0 +1,8 @@
+Cust,Ph,E-mail,Loc,St,Cty,Src,Owner_Email,Stat,Rmks,Dt,Poss
+Ravi Teja,9988776655,ravi.teja@gmail.com,"Gachibowli, Hyderabad",Telangana,India,leads_on_demand,owner1@groweasy.ai,GOOD_LEAD_FOLLOW_UP,"Very interested, wants 2BHK",13/06/2026,Dec 2027
+Sunita Rao;Ajay Rao,9123456780;9123456781,sunita.rao@yahoo.co.in,Whitefield Bangalore,Karnataka,India,,owner2@groweasy.ai,,"couple enquiry, husband number also given, please note both",14-06-2026,
+Mohammed Iqbal,,iqbal.m@gmail.com;iqbal.work@company.com,Banjara Hills,Telangana,India,varah_swamy,owner1@groweasy.ai,DID_NOT_CONNECT,"no answer after 3 attempts, using work email as backup contact",2026.06.14,Ready to move
+,,,,,,,,,"completely empty lead, junk data from form spam",15-06-2026,
+Lakshmi N,08041234567,lakshmi.n@gmail.com,Jayanagar,Karnataka,India,eden_park,owner3@groweasy.ai,BAD_LEAD,"not interested, wrong number dialed accidentally by agent",15/06/2026,
+Vikram Singh Chauhan,+919845098450,vikram.chauhan@outlook.com,"Sector 45, Gurgaon",Haryana,India,meridian_tower,owner2@groweasy.ai,SALE_DONE,"token amount received 50000, full payment by month end. secondary contact wife: vikram.wife@gmail.com",16-Jun-26,Immediate
+Test User,1234567890,test@test.com,Nowhere,XX,India,unknown_source_xyz,owner1@groweasy.ai,GOOD_LEAD_FOLLOW_UP,"data source doesn't match any known project - should stay blank",17/06/2026,2028

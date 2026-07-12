@@ -1,0 +1,101 @@
+Full Name,Email,Mobile,Company,City,State,Status,Source,Created At,Notes
+Aarav Sharma,aarav.sharma@example.com,+91 9876543210,Tech Solutions,Mumbai,Maharashtra,Sale Done,leads_on_demand,2026-06-01,Client is interested in premium plan
+Vivaan Gupta,vivaan.g@example.com,9876543211,Fintech Corp,Delhi,Delhi,booking confirmed,meridian_tower,02/06/2026,Token amount 50000 received
+Aditya Patel,aditya.patel@example.com,09876543212,Logistics Ltd,Ahmedabad,Gujarat,no answer,eden_park,2026-06-03,Tried calling twice
+Vihaan Sen,vihaan.sen@example.com,+919876543213,Retail Hub,Kolkata,West Bengal,not interested,varah_swamy,04-06-2026,Junk lead - do not call again
+Arjun Nair,arjun.nair@example.com,,Greenfield Agri,Kochi,Kerala,good lead,sarjapur_plots,2026-06-05,No phone; secondary email: arjun.alt@example.com
+Sai Reddy,sai.reddy@example.com,919876543215,Builder Group,Hyderabad,Telangana,Sale Done,leads_on_demand,06-06-2026,Interested in site visit on Sunday
+Reyansh Kapoor,reyansh.k@example.com,+91-9876543216,Media Net,Mumbai,Maharashtra,switched off,meridian_tower,2026-06-07, NC - call back on Monday
+Krishna Murthy,krishna.m@example.com,9876543217,Software Lab,Bengaluru,Karnataka,callback,eden_park,08/06/2026,Wants demo with team
+Ishaan Bhat,ishaan.b@example.com,9876543218,EduTech,Pune,Maharashtra,Sale Done,varah_swamy,2026-06-09,Paid via credit card
+Shaurya Verma,,9876543219,Hospitailty Group,Delhi,Delhi,good lead,sarjapur_plots,10-06-2026,No email; alternative number: 9988776655
+Pranav Joshi,pranav.j@example.com,9876543220,Consultancy Ltd,Mumbai,Maharashtra,busy,leads_on_demand,2026-06-11,DNP - will follow up
+Atharv Kulkarni,atharv.k@example.com,9876543221,Auto Components,Pune,Maharashtra,not interested,meridian_tower,12/06/2026,Budget too low
+Kabir Malhotra,kabir.m@example.com,9876543222,Fashion Studio,Delhi,Delhi,Sale Done,eden_park,2026-06-13,Token confirmed
+Dhruv Saxena,dhruv.s@example.com,,Health Care,Noida,Uttar Pradesh,new lead,varah_swamy,14-06-2026,Awaiting feedback
+Devansh Mishra,devansh.m@example.com,9876543224,Food Services,Lucknow,Uttar Pradesh,Sale Done,sarjapur_plots,2026-06-15,Payment completed
+Karan Singh,karan.s@example.com,9876543225,Steel Plant,Jamshedpur,Jharkhand,NC,leads_on_demand,16/06/2026,Out of network area
+Rudra Das,rudra.das@example.com,9876543226,Coal Corp,Kolkata,West Bengal,Sale Done,meridian_tower,2026-06-17,Deal closed successfully
+Om Mehta,om.mehta@example.com,9876543227,Stock Brokers,Mumbai,Maharashtra,bad lead,eden_park,18-06-2026,Wrong number mapped
+Rohan Bhatia,rohan.b@example.com,9876543228,E-Commerce,Delhi,Delhi,Sale Done,varah_swamy,2026-06-19,Wants custom invoice
+Ranveer Kapoor,ranveer.k@example.com,9876543229,Auto Dealers,Gurugram,Haryana,ringing,sarjapur_plots,20/06/2026,No response
+Rithvik Choudhury,rithvik.c@example.com,9876543230,Textiles,Coimbatore,Tamil Nadu,Sale Done,leads_on_demand,2026-06-21,Paid full amount
+Ananya Iyer,ananya.iyer@example.com,9876543231,Financial Services,Chennai,Tamil Nadu,booking confirmed,meridian_tower,22-06-2026,Site visit done - token pending
+Diya Sharma,diya.s@example.com,9876543232,Marketing Agency,Mumbai,Maharashtra,no answer,eden_park,2026-06-23,Follow up on Tuesday
+Pari Patel,pari.patel@example.com,9876543233,Chemicals Group,Surat,Gujarat,not interested,varah_swamy,24/06/2026,Already purchased elsewhere
+Kiara Sen,,9876543234,Home Decor,Kolkata,West Bengal,good lead,sarjapur_plots,2026-06-25,No email; Wants brochure
+Aditi Nair,aditi.nair@example.com,9876543235,Organic Products,Kochi,Kerala,Sale Done,leads_on_demand,26-06-2026,Very keen - converted
+Meher Reddy,meher.r@example.com,,Construction Ltd,Hyderabad,Telangana,Sale Done,meridian_tower,2026-06-27,Wants floor plan shared on WhatsApp
+Avani Kapoor,avani.k@example.com,9876543237,Travels Agency,Delhi,Delhi,NC,eden_park,28/06/2026,Busy; asked to call back in evening
+Myra Bhat,myra.b@example.com,9876543238,Publishing House,Pune,Maharashtra,Sale Done,varah_swamy,2026-06-29,Payment via NetBanking
+Anvi Joshi,anvi.j@example.com,9876543239,HR Services,Mumbai,Maharashtra,good lead,sarjapur_plots,30-06-2026,Alternative email: anvi.office@example.com
+Aahana Kulkarni,,,Renewable Energy,Pune,Maharashtra,bad lead,leads_on_demand,2026-07-01,No contact details at all (Skip Test)
+Ira Malhotra,ira.m@example.com,9876543241,Advertising Co,Delhi,Delhi,Sale Done,meridian_tower,02/07/2026,Wants customized quote
+Aaradhya Saxena,aaradhya.s@example.com,9876543242,Apparels,Noida,Uttar Pradesh,new lead,eden_park,2026-07-03,Brochure sent
+Navya Mishra,navya.m@example.com,9876543243,Beverages,Lucknow,Uttar Pradesh,Sale Done,varah_swamy,04-07-2026,Confirmed via email
+Saanvi Singh,saanvi.s@example.com,9876543244,Engineering Group,Jamshedpur,Jharkhand,not interested,sarjapur_plots,2026-07-05,Fake query
+Kavya Das,kavya.das@example.com,9876543245,Shipping Corp,Kolkata,West Bengal,Sale Done,leads_on_demand,06/07/2026,Token amount 1 lakh received
+Siya Mehta,siya.m@example.com,9876543246,Investment Firm,Mumbai,Maharashtra,bad lead,meridian_tower,2026-07-07,Invalid details
+Riya Bhatia,riya.b@example.com,9876543247,FMCG Ltd,Delhi,Delhi,Sale Done,eden_park,08-07-2026,Converted - onboarding done
+Aanya Kapoor,aanya.k@example.com,,Interior Design,Gurugram,Haryana,ringing,varah_swamy,2026-07-09,Awaiting verification
+Shruti Choudhury,shruti.c@example.com,9876543249,Paper Mills,Coimbatore,Tamil Nadu,Sale Done,sarjapur_plots,10/07/2026,Completed today
+Siddharth Gupta,siddharth.g@example.com,9876543250,Tech Consulting,Bengaluru,Karnataka,Sale Done,leads_on_demand,2026-07-11,Site visit scheduled
+Rishabh Sharma,rishabh.s@example.com,9876543251,E-Learning,Delhi,Delhi,NC,meridian_tower,12-07-2026,Switched off
+Pranav Patel,pranav.p@example.com,9876543252,Agri Solutions,Ahmedabad,Gujarat,good lead,eden_park,2026-07-13,Interested in 2BHK
+Ishaan Sen,ishaan.s@example.com,9876543253,Logistics Corp,Kolkata,West Bengal,Sale Done,varah_swamy,14/07/2026,Full payment received
+Arjun Iyer,arjun.i@example.com,,Infrastructure,Chennai,Tamil Nadu,Sale Done,sarjapur_plots,2026-07-15,Token 2 lakhs received
+Sai Kumar,sai.k@example.com,9876543255,Real Estate,Hyderabad,Telangana,not interested,leads_on_demand,16-07-2026,Junk lead
+Reyansh Das,reyansh.d@example.com,9876543256,Media Group,Kolkata,West Bengal,Sale Done,meridian_tower,2026-07-17,Converted
+Krishna Reddy,krishna.r@example.com,9876543257,Power Corp,Hyderabad,Telangana,Sale Done,eden_park,18/07/2026,Deal won
+Ishaan Verma,,9876543258,Automobiles,Delhi,Delhi,good lead,varah_swamy,2026-07-19,Wants alternate phone updated: 9112233445
+Shaurya Nair,shaurya.n@example.com,9876543259,Hospitals,Kochi,Kerala,Sale Done,sarjapur_plots,20-07-2026,Closed
+Pranav Sen,pranav.sen@example.com,9876543260,Education,Kolkata,West Bengal,NC,leads_on_demand,2026-07-21,Busy
+Atharv Reddy,atharv.r@example.com,9876543261,Cement Co,Hyderabad,Telangana,good lead,meridian_tower,22/07/2026,Requested brochure
+Kabir Das,kabir.d@example.com,9876543262,IT Park,Kolkata,West Bengal,Sale Done,eden_park,2026-07-23,Done
+Dhruv Sen,dhruv.sen@example.com,9876543263,Pharma Ltd,Ahmedabad,Gujarat,Sale Done,varah_swamy,24-07-2026,Paid
+Devansh Kulkarni,devansh.k@example.com,,Steel Corp,Pune,Maharashtra,Sale Done,sarjapur_plots,2026-07-25,Converted
+Karan Joshi,karan.j@example.com,9876543265,Food Chain,Mumbai,Maharashtra,NC,leads_on_demand,26/07/2026,Callback
+Rudra Kapoor,rudra.k@example.com,9876543266,Retailers,Delhi,Delhi,Sale Done,meridian_tower,2026-07-27,Onboarded
+Om Sen,om.sen@example.com,9876543267,Textile Mills,Coimbatore,Tamil Nadu,Sale Done,eden_park,28-07-2026,Deal won
+Rohan Reddy,rohan.r@example.com,9876543268,Agro Foods,Hyderabad,Telangana,Sale Done,varah_swamy,2026-07-29,Paid
+Ranveer Sen,ranveer.s@example.com,9876543269,Exports Co,Kolkata,West Bengal,Sale Done,sarjapur_plots,30/07/2026,Token clear
+Rithvik Sen,rithvik.s@example.com,9876543270,Logistics,Mumbai,Maharashtra,Sale Done,leads_on_demand,2026-07-31,Done
+Ananya Nair,ananya.n@example.com,9876543271,Trading Corp,Kochi,Kerala,Sale Done,meridian_tower,01-08-2026,Done
+Diya Sen,diya.sen@example.com,9876543272,Media Net,Kolkata,West Bengal,NC,eden_park,2026-08-02,No response
+Pari Das,pari.d@example.com,,Shipping Group,Kolkata,West Bengal,Sale Done,varah_swamy,03/08/2026,Paid
+Kiara Sen,kiara.sen@example.com,9876543274,Hotels,Delhi,Delhi,Sale Done,sarjapur_plots,2026-08-04,Done
+Aditi Sen,aditi.sen@example.com,9876543275,Garments,Coimbatore,Tamil Nadu,Sale Done,leads_on_demand,05-08-2026,Done
+Meher Sen,meher.sen@example.com,9876543276,Boutiques,Mumbai,Maharashtra,Sale Done,meridian_tower,2026-08-06,Done
+Avani Das,avani.d@example.com,,Fittings Co,Delhi,Delhi,Sale Done,eden_park,07/08/2026,Done
+Myra Sen,myra.sen@example.com,9876543278,Exports Ltd,Kolkata,West Bengal,Sale Done,varah_swamy,2026-08-08,Done
+Anvi Das,anvi.d@example.com,9876543279,Trading Ltd,Mumbai,Maharashtra,Sale Done,sarjapur_plots,09-08-2026,Done
+Aahana Das,aahana.d@example.com,9876543280,Fittings Ltd,Delhi,Delhi,Sale Done,leads_on_demand,2026-08-10,Done
+Ira Das,ira.d@example.com,9876543281,Apparels Co,Coimbatore,Tamil Nadu,Sale Done,meridian_tower,11/08/2026,Done
+Aaradhya Das,aaradhya.d@example.com,,Agri Ltd,Ahmedabad,Gujarat,Sale Done,eden_park,2026-08-12,Done
+Navya Das,navya.d@example.com,9876543283,Imports Ltd,Kochi,Kerala,Sale Done,varah_swamy,13-08-2026,Done
+Saanvi Das,saanvi.d@example.com,9876543284,Boutique Ltd,Mumbai,Maharashtra,Sale Done,sarjapur_plots,2026-08-14,Done
+Kavya Sen,kavya.sen@example.com,9876543285,Garments Ltd,Coimbatore,Tamil Nadu,Sale Done,leads_on_demand,15/08/2026,Done
+Siya Sen,siya.sen@example.com,9876543286,Exports Corp,Kolkata,West Bengal,Sale Done,meridian_tower,2026-08-16,Done
+Riya Sen,riya.sen@example.com,,Trading Corp,Mumbai,Maharashtra,Sale Done,eden_park,17-08-2026,Done
+Aanya Sen,aanya.sen@example.com,9876543288,Pharma Corp,Ahmedabad,Gujarat,Sale Done,varah_swamy,2026-08-18,Done
+Shruti Sen,shruti.sen@example.com,9876543289,Steel Limited,Pune,Maharashtra,Sale Done,sarjapur_plots,19/08/2026,Done
+Siddharth Sen,siddharth.s@example.com,9876543290,Logistics Ltd,Delhi,Delhi,Sale Done,leads_on_demand,2026-08-20,Done
+Rishabh Sen,rishabh.sen@example.com,9876543291,Builders Ltd,Hyderabad,Telangana,Sale Done,meridian_tower,21-08-2026,Done
+Pranav Das,pranav.das@example.com,,Software Ltd,Bengaluru,Karnataka,Sale Done,eden_park,2026-08-22,Done
+Ishaan Das,ishaan.das@example.com,9876543293,EduTech Co,Pune,Maharashtra,Sale Done,varah_swamy,23/08/2026,Done
+Arjun Das,arjun.das@example.com,9876543294,HR Corp,Mumbai,Maharashtra,Sale Done,sarjapur_plots,2026-08-24,Done
+Sai Das,sai.das@example.com,9876543295,FMCG Co,Delhi,Delhi,Sale Done,leads_on_demand,25-08-2026,Done
+Reyansh Sen,reyansh.sen@example.com,9876543296,Auto Corp,Pune,Maharashtra,Sale Done,meridian_tower,2026-08-26,Done
+Krishna Das,krishna.das@example.com,9876543297,Fashion Co,Delhi,Delhi,Sale Done,eden_park,27/08/2026,Done
+Ishaan Reddy,ishaan.reddy@example.com,,Stock Ltd,Hyderabad,Telangana,Sale Done,varah_swamy,2026-08-28,Done
+Shaurya Das,shaurya.das@example.com,9876543299,Consultants,Mumbai,Maharashtra,Sale Done,sarjapur_plots,29-08-2026,Done
+Aarav Sen,aarav.sen@example.com,9876543300,Renewable Ltd,Pune,Maharashtra,Sale Done,leads_on_demand,2026-08-30,Done
+Vivaan Sen,vivaan.sen@example.com,9876543301,Advertising Ltd,Delhi,Delhi,Sale Done,meridian_tower,31/08/2026,Done
+Aditya Das,aditya.das@example.com,,Pharma Co,Ahmedabad,Gujarat,Sale Done,eden_park,2026-09-01,Done
+Vihaan Das,vihaan.das@example.com,9876543303,Engineering Ltd,Jamshedpur,Jharkhand,Sale Done,varah_swamy,02-09-2026,Done
+Arjun Reddy,arjun.reddy@example.com,9876543304,Imports Co,Kochi,Kerala,Sale Done,sarjapur_plots,2026-09-03,Done
+Sai Sen,sai.sen@example.com,9876543305,Boutiques Co,Mumbai,Maharashtra,Sale Done,leads_on_demand,04/09/2026,Done
+Reyansh Patel,reyansh.patel@example.com,,Trading Co,Surat,Gujarat,Sale Done,meridian_tower,2026-09-05,Done
+Krishna Sen,krishna.sen@example.com,9876543307,Garments Co,Kolkata,West Bengal,Sale Done,eden_park,06-09-2026,Done
+Ishaan Das,ishaan.d@example.com,9876543308,Textiles Ltd,Coimbatore,Tamil Nadu,Sale Done,varah_swamy,2026-09-07,Done
+Shaurya Sen,shaurya.sen@example.com,9876543309,Pharma Group,Ahmedabad,Gujarat,Sale Done,sarjapur_plots,08/09/2026,Done

@@ -36,7 +36,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
 }
 
@@ -180,4 +180,47 @@
 
 .saveButton:active {
   transform: translateY(1px);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  .container {
+    padding: 24px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .headerTitle h1 {
+    font-size: 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .actions {
+    margin-top: 8px;
+  }
+
+  .saveButton {
+    width: 100%;
+    justify-content: center;
+  }
 }

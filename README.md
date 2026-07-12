@@ -18,6 +18,7 @@ The system allows uploading CSV files of any structure (e.g. Facebook Lead Expor
 - **Leads Database & Controls**: Full-featured Leads dashboard showing active leads with search queries, status/source filters (with specific red formatting for `REJECTED` and `BAD_LEAD` status values), sorting, and manual record deletion.
 - **Theme Engine**: Toggle between custom Cyberpunk Dark Mode (default) and Light Mode.
 - **API Settings**: Change backend server endpoint URL and save your own Gemini API key to the browser's `localStorage` directly in the UI.
+- **Mobile & Tablet Responsiveness**: A fully adaptive navigation drawer (hamburger menu) and responsive fluid layout scaling ensure premium visual design and usability across all devices (mobile, tablet, and desktop).
 
 ---
 
@@ -146,6 +147,33 @@ GrowEasy/
 │   │   └── components/       # Custom modular view components
 │   ├── Dockerfile            # Multi-stage production build Dockerfile
 │   └── package.json
+├── samples/           # Consolidated CSV sample files for evaluation
 ├── docker-compose.yml
 └── README.md
 ```
+
+---
+
+## Sample Files for Testing
+
+To make testing and evaluation easier, all sample CSV files are consolidated in the `/samples` folder:
+
+1. **[facebook_leads_export.csv](file:///d:/Projects/GrowEasy/samples/facebook_leads_export.csv)**: Mock Facebook Ads lead export.
+   - *Columns*: `form_name`, `ad_name`, `full_name`, `phone_number`, `email_address`, `alternate_phone`, `alternate_email`, `city_town`, `budget_range`, `project_interest`, `notes_remarks`, `lead_status`, `submitted_on`.
+   - *Test Scenario*: Evaluates standard social lead gen data, multiple emails/phones extraction (primary vs backup), and status conversion.
+
+2. **[google_ads_generic_export.csv](file:///d:/Projects/GrowEasy/samples/google_ads_generic_export.csv)**: A dense, abbreviated column structure.
+   - *Columns*: `Cust`, `Ph`, `E-mail`, `Loc`, `St`, `Cty`, `Src`, `Owner_Email`, `Stat`, `Rmks`, `Dt`, `Poss`.
+   - *Test Scenario*: Tests AI mapping on short headers, empty rows skipping, and multiple location string components merging.
+
+3. **[manual_sales_rep_sheet.csv](file:///d:/Projects/GrowEasy/samples/manual_sales_rep_sheet.csv)**: Messy, unstructured rep data.
+   - *Columns*: `Lead Details`, `Contact Info`, `Where From`, `Project`, `Current Status of Lead`, `Sales Person Comments`, `Date Added`.
+   - *Test Scenario*: Evaluates the AI's power to extract name and contact fields out of conversational values (e.g. "MRS KAVITHA REDDY - kavithareddy88@gmail.com only, no phone number"), and skip rows completely missing contacts.
+
+4. **[test_leads_100.csv](file:///d:/Projects/GrowEasy/samples/test_leads_100.csv)**: High-volume standard CRM export.
+   - *Columns*: Standard CRM fields with 100 rows of clean/messy data.
+   - *Test Scenario*: Evaluates batch SSE streaming progress bars, chunk-by-chunk AI mapping, and large table previews.
+
+5. **[large_test_dataset_30rows.csv](file:///d:/Projects/GrowEasy/samples/large_test_dataset_30rows.csv)**: Mid-size CRM export.
+   - *Columns*: CRM fields with 30 rows of lead data.
+   - *Test Scenario*: Evaluates performance mapping 30 rows with confidence score distributions.
